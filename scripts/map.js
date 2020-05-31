@@ -36,7 +36,7 @@ function onEachFeature(feature,layer) {
 
 geoJson = L.geoJson(flCounties, {
   onEachFeature: onEachFeature
-}).addTo(map);
+}).addTo(mymap);
 
 
 /*
