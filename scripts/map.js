@@ -26,11 +26,16 @@ function highlightFeature(e) {
   }
 }
 
+function resetHighlight(e) {
+  geojson.resetHighlight(e.target);
+}
+
 var geojson;
 
 function onEachFeature(feature,layer) {
   layer.on({
-    mouseover: highlightFeature
+    mouseover: highlightFeature,
+    mouseout: resetHighlight
   });
 }
 
