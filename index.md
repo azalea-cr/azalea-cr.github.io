@@ -29,7 +29,7 @@
     <!--NavBar-->
     <nav class="navbar navbar-light bg-light">
       <a class="navbar-brand" href="#">
-        <img src="images/logoVector3-squareish-150x150.png"width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        <img src="./images/logoVector3-squareish-150x150.png"width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
         Azalea Analytics
       </a>
     </nav>
