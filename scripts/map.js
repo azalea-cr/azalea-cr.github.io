@@ -2,9 +2,9 @@ var mymap = L.map("mapid").setView([28.6648, -84.5158], 6);
 var mapboxAccessToken =
   "pk.eyJ1IjoiY3Jvc3MxOTg5IiwiYSI6ImNrYW82bDlueTBjYXAydW80cmNpejN2YjIifQ.TkqWhxj4bjvQgv1H3TPE1Q";
 
-L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
+L.tileLayer("https://{s}.tile.osm.org/{z}/{x}/{y}.png", {
   attribution:
-    '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+    '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
 }).addTo(mymap);
 
 //Adds county bourders from Florida_Counties.js
