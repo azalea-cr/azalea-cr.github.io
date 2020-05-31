@@ -7,41 +7,55 @@ L.tileLayer("https://{s}.tile.osm.org/{z}/{x}/{y}.png", {
     '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
 }).addTo(mymap);
 
-//Adds county bourders from Florida_Counties.js
-L.geoJson(flCounties).addTo(mymap);
+function style(feature) {
+  return {
+    weight: 2,
+    opacity: 1,
+    color: 'white',
+    dashArray: '3',
+    fillOpacity: 0.7,
+    fillColor: 'Blue'
+  };
+}
 
-//Mouseover Function
 function highlightFeature(e) {
   var layer = e.target;
 
   layer.setStyle({
-      weight: 5,
-      color: '#666',
-      dashArray: '',
-      fillOpacity: 0.7
+    weight: 5,
+    color: '#666',
+    dashArray: '',
+    fillOpacity: 0.7
   });
 
   if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-      layer.bringToFront();
+    layer.bringToFront();
   }
-}
-
-function resetHighlight(e) {
-  geojson.resetHighlight(e.target);
 }
 
 var geojson;
 
-function onEachFeature(feature,layer) {
+function resetHighlight(e) {
+  geojson.resetStyle(e.target);
+}
+
+function zoomToFeature(e) {
+  mymap.fitBounds(e.target.getBounds());
+}
+
+function onEachFeature(feature, layer) {
   layer.on({
     mouseover: highlightFeature,
-    mouseout: resetHighlight
+    mouseout: resetHighlight,
+    click: zoomToFeature
   });
 }
 
-geoJson = L.geoJson(flCounties, {
+geojson = L.geoJson(flCounties, {
+  style: style,
   onEachFeature: onEachFeature
 }).addTo(mymap);
+
 
 
 /*
